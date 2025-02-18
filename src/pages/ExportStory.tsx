@@ -49,7 +49,7 @@ const ExportStory = () => {
     {
       icon: FileJson,
       name: "JSON Export",
-      description: "Export all story data as JSON",
+      description: "Export all story data as JSON format",
       action: (scenes) => {
         const content = JSON.stringify(scenes, null, 2);
         downloadFile(content, 'story-data.json', 'application/json');

@@ -44,13 +44,15 @@ const StoryInput = () => {
 
   const handleAddScene = () => {
     if (newScene.title && newScene.description) {
+      const now = new Date();
       addScene({
         id: crypto.randomUUID(),
         title: newScene.title,
         description: newScene.description,
         characters: newScene.characters.split(",").map((c) => c.trim()),
         plotNumber: scenes.length + 1,
-        lastModified: new Date(),
+        createdAt: now,
+        lastModified: now,
       });
       setNewScene({ title: "", description: "", characters: "" });
     }
@@ -175,11 +177,10 @@ const StoryInput = () => {
                   </span>
                 ))}
               </div>
-              {scene.lastModified && (
-                <div className="text-xs text-muted-foreground mt-2">
-                  Last modified: {new Date(scene.lastModified).toLocaleString()}
-                </div>
-              )}
+              <div className="text-xs text-muted-foreground mt-2 flex justify-between">
+                <span>Created: {new Date(scene.createdAt).toLocaleString()}</span>
+                <span>Modified: {new Date(scene.lastModified).toLocaleString()}</span>
+              </div>
             </div>
           ))}
         </div>

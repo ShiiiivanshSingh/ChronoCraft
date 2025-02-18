@@ -25,13 +25,16 @@ const Index = () => {
     <div className="min-h-screen font-sans">
       {/* Hero Section */}
       <section className="section-padding flex flex-col items-center justify-center h-screen">
-        <div className="animate-fade-down">
-          <span className="inline-block px-4 py-2 rounded-full items-center bg-accent/10 text-accent mb-6 mx-auto text-center">
-            Transform Your Stories
-          </span>
+        <div className="animate-fade-down text-center max-w-4xl mx-auto px-4">
+          <div className="inline-flex justify-center w-full">
+            <span className="px-4 py-2 rounded-full bg-accent/10 text-accent mb-6">
+              Transform Your Stories
+            </span>
+          </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight font-mont">
-            Craft Timeless Stories—
-            <span className="text-gradient">Break Time Itself</span>
+            Craft Timeless Stories <br></br>
+            
+            <span className="text-gradient mt-4">Break Time Itself</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
             Turn your linear plot into a cinematic masterpiece. Upload, rearrange, and

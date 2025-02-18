@@ -2,18 +2,10 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { Clock, Shuffle, GitBranch, LucideIcon, Download, ArrowLeft, ArrowRight } from "lucide-react";
 import { useStoryStore } from './StoryInput';
-
-// Define the Scene type here to match what's used in StoryInput
-interface Scene {
-  id: string;
-  title: string;
-  description: string;
-  characters: string[];
-  // Add any other properties from your StoryInput
-}
+import { Scene } from "@/types/story";
 
 interface Template {
-  icon: LucideIcon;  // Replace 'any' with LucideIcon type
+  icon: LucideIcon;  
   name: string;
   description: string;
   apply: (scenes: Scene[]) => Scene[];
@@ -24,10 +16,8 @@ const Templates = () => {
   const navigate = useNavigate();
 
   const applyTemplate = (template: Template) => {
-    // Preserve all scene properties while reordering
     const newScenes = template.apply([...scenes].map(scene => ({
       ...scene,
-      // Ensure all required properties are maintained
     })));
     setScenes(newScenes);
     navigate("/editor");
@@ -78,7 +68,9 @@ const templates: Template[] = [
     apply: (scenes: Scene[]) => {
       const forward = [...scenes].filter((_, i) => i % 2 === 0);
       const backward = [...scenes].filter((_, i) => i % 2 === 1).reverse();
-      return [...backward, ...forward];
+      return [...backward, ...forward].map(scene => ({
+        ...scene,
+      }));
     }
   },
   {
@@ -86,13 +78,11 @@ const templates: Template[] = [
     name: "Pulp Fiction",
     description: "Multiple intersecting storylines with non-linear progression.",
     apply: (scenes: Scene[]) => {
-      // Create three interweaving storylines
       const storylines = [[], [], []];
       scenes.forEach((scene, i) => {
         storylines[i % 3].push(scene);
       });
       
-      // Shuffle each storyline independently
       storylines.forEach(storyline => {
         for (let i = storyline.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
@@ -100,7 +90,9 @@ const templates: Template[] = [
         }
       });
       
-      return storylines.flat();
+      return storylines.flat().map(scene => ({
+        ...scene,
+      }));
     }
   },
   {
@@ -108,15 +100,11 @@ const templates: Template[] = [
     name: "Inception Layers",
     description: "Nested storylines with parallel time progression.",
     apply: (scenes: Scene[]) => {
-      // Create nested dream layers
       const layers = Math.ceil(scenes.length / 3);
       const restructured = [];
       
       for (let depth = 0; depth < layers; depth++) {
-        // Add entry point to each layer
         restructured.push(...scenes.slice(depth * 3, depth * 3 + 1));
-        
-        // Add parallel scenes from other layers
         for (let layer = 0; layer < depth; layer++) {
           const sceneIndex = layer * 3 + 1 + depth;
           if (sceneIndex < scenes.length) {
@@ -125,7 +113,9 @@ const templates: Template[] = [
         }
       }
       
-      return restructured;
+      return restructured.map(scene => ({
+        ...scene,
+      }));
     }
   },
 ];

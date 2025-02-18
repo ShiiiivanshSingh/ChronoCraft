@@ -15,5 +15,6 @@ export interface Scene {
   };
   notes?: string;          // Additional notes about the scene
   version?: number;        // Version number for tracking changes
-  lastModified?: Date;     // Last modification timestamp
+  createdAt: Date;      // When the scene was first created
+  lastModified: Date;   // When the scene was last modified
 }
