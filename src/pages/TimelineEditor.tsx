@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { MoveHorizontal, Undo2, Redo2, Save, Download, GitBranch, RotateCcw, Link2 } from "lucide-react";
+import { MoveHorizontal, Undo2, Redo2, Save, Download, GitBranch, RotateCcw, Link2, Copy, BookTemplate, LayoutTemplate } from "lucide-react";
 import { useStoryStore } from './StoryInput';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { Scene } from "@/types/story";
@@ -176,20 +176,22 @@ const TimelineEditor = () => {
         <Button 
           variant="outline" 
           className="glass"
-          onClick={() => navigate("/export")}
-        >
-          <Download className="h-4 w-4 mr-2" />
-          Export
+          onClick={() => navigate("/templates")}>
+          <LayoutTemplate className="h-4 w-4 mr-2" />
+          Apply Templates
         </Button>
       </div>
 
       {/* Navigation */}
       <div className="flex justify-between">
         <Button variant="outline" onClick={() => navigate("/story-input")}>
+          
           Back to Story Input
         </Button>
-        <Button onClick={() => navigate("/templates")}>
-          Apply Templates
+        <Button onClick={() => navigate("/export")}>
+        <Download className="h-4 w-4 mr-2" />
+
+          Export
         </Button>
       </div>
     </div>
