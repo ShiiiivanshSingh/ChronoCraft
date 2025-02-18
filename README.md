@@ -1,6 +1,6 @@
 <div align="center">
-  <img src="assets/logo.png" alt="Story Structure Logo" width="200" height="auto" />
-  <h1>Story Structure</h1>
+  <img src="assets/logo.png" alt="ChronoCraft Logo" width="200" height="auto" />
+  <h1>ChronoCraft</h1>
   
   <p>
     A powerful tool for crafting non-linear narratives. Transform your linear stories into cinematic masterpieces with our intuitive timeline editor.
@@ -8,25 +8,25 @@
 
 <!-- Badges -->
 <p>
-  <a href="https://github.com/yourusername/story-structure">
-    <img src="https://img.shields.io/github/contributors/yourusername/story-structure" alt="contributors" />
+  <a href="https://github.com/ShiiiivanshSingh/chronocraft">
+    <img src="https://img.shields.io/github/contributors/ShiiiivanshSingh/chronocraft" alt="contributors" />
   </a>
-  <a href="https://github.com/yourusername/story-structure">
-    <img src="https://img.shields.io/github/last-commit/yourusername/story-structure" alt="last update" />
+  <a href="https://github.com/ShiiiivanshSingh/chronocraft">
+    <img src="https://img.shields.io/github/last-commit/ShiiiivanshSingh/chronocraft" alt="last update" />
   </a>
-  <a href="https://github.com/yourusername/story-structure">
-    <img src="https://img.shields.io/github/stars/yourusername/story-structure?style=social" alt="stars" />
+  <a href="https://github.com/ShiiiivanshSingh/chronocraft">
+    <img src="https://img.shields.io/github/stars/ShiiiivanshSingh/chronocraft?style=social" alt="stars" />
   </a>
 </p>
 
 <h4>
-    <a href="https://story-structure.vercel.app">View Demo</a>
+    <a href="https://chrono-craft-mu.vercel.app">View Demo</a>
   <span> · </span>
-    <a href="https://github.com/yourusername/story-structure">Documentation</a>
+    <a href="https://github.com/ShiiiivanshSingh/chronocraft">Documentation</a>
   <span> · </span>
-    <a href="https://github.com/yourusername/story-structure/issues/">Report Bug</a>
+    <a href="https://github.com/ShiiiivanshSingh/chronocraft/issues/">Report Bug</a>
   <span> · </span>
-    <a href="https://github.com/yourusername/story-structure/issues/">Request Feature</a>
+    <a href="https://github.com/ShiiiivanshSingh/chronocraft/issues/">Request Feature</a>
 </h4>
 </div>
 
@@ -114,12 +114,16 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 <!-- Contact -->
 ## Contact
 
-Your Name - [@yourtwitter](https://twitter.com/yourtwitter) - email@example.com
+Shivansh Pratap Singh
+- [GitHub](https://github.com/ShiiiivanshSingh)
+- [LinkedIn](https://www.linkedin.com/in/shivansh-pratap-singh-23b3b92b1)
+- [Twitter](https://x.com/de_mirage_fan)
 
-Project Link: [https://github.com/yourusername/story-structure](https://github.com/yourusername/story-structure)
+Project Link: [https://github.com/ShiiiivanshSingh/chronocraft](https://github.com/ShiiiivanshSingh/chronocraft)
+Live Demo: [https://chrono-craft-mu.vercel.app](https://chrono-craft-mu.vercel.app)
 
 ---
 
 <div align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Montserrat&size=18&duration=1000&pause=10000&color=FF6B6B&center=true&vCenter=true&random=false&width=435&lines=Made+with+%E2%9D%A4%EF%B8%8F+by+Story+Structure+Team" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Montserrat&size=18&duration=1000&pause=10000&color=FF6B6B&center=true&vCenter=true&random=false&width=435&lines=Made+with+%E2%9D%A4%EF%B8%8F+by+Shivansh+Pratap+Singh" alt="Typing SVG" />
 </div>

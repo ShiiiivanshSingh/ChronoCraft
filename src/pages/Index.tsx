@@ -15,6 +15,7 @@ import {
   Twitter,
   Mail,
   Heart,
+  Linkedin,
 } from "lucide-react";
 
 const Index = () => {
@@ -205,7 +206,7 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
-              <h3 className="font-bold mb-4 font-mont">Story Structure</h3>
+              <h3 className="font-bold mb-4 font-mont">ChronoCraft</h3>
               <p className="text-muted-foreground text-sm">
                 Crafting non-linear narratives made simple.
               </p>
@@ -234,35 +235,53 @@ const Index = () => {
               <h3 className="font-bold mb-4 font-mont">Resources</h3>
               <ul className="space-y-2">
                 <li>
-                  <Button variant="link">Documentation</Button>
+                  <Button variant="link" onClick={() => window.open("https://github.com/ShiiiivanshSingh/chronocraft", "_blank")}>
+                    Documentation
+                  </Button>
                 </li>
                 <li>
-                  <Button variant="link">Blog</Button>
+                  <Button variant="link" onClick={() => window.open("https://github.com/ShiiiivanshSingh/chronocraft/issues", "_blank")}>
+                    Report Bug
+                  </Button>
                 </li>
                 <li>
-                  <Button variant="link">Support</Button>
+                  <Button variant="link" onClick={() => window.open("https://github.com/ShiiiivanshSingh/chronocraft/issues", "_blank")}>
+                    Request Feature
+                  </Button>
                 </li>
               </ul>
             </div>
             <div>
               <h3 className="font-bold mb-4 font-mont">Connect</h3>
               <div className="flex space-x-4">
-                <Button variant="ghost" size="icon">
+                <Button 
+                  variant="ghost" 
+                  size="icon"
+                  onClick={() => window.open("https://github.com/ShiiiivanshSingh", "_blank")}
+                >
                   <Github className="h-5 w-5" />
                 </Button>
-                <Button variant="ghost" size="icon">
-                  <Twitter className="h-5 w-5" />
+                <Button 
+                  variant="ghost" 
+                  size="icon"
+                  onClick={() => window.open("https://www.linkedin.com/in/shivansh-pratap-singh-23b3b92b1", "_blank")}
+                >
+                  <Linkedin className="h-5 w-5" />
                 </Button>
-                <Button variant="ghost" size="icon">
-                  <Mail className="h-5 w-5" />
+                <Button 
+                  variant="ghost" 
+                  size="icon"
+                  onClick={() => window.open("https://x.com/de_mirage_fan", "_blank")}
+                >
+                  <Twitter className="h-5 w-5" />
                 </Button>
               </div>
             </div>
           </div>
           <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
-            <p>© 2024 Story Structure. All rights reserved.</p>
+            <p>© 2024 ChronoCraft. All rights reserved.</p>
             <div className="flex items-center gap-2 mt-4 md:mt-0">
-              Made with <Heart className="h-4 w-4 text-red-500" /> by Story Structure Team
+              Made with <Heart className="h-4 w-4 text-red-500" /> by Shivansh Pratap Singh
             </div>
           </div>
         </div>
