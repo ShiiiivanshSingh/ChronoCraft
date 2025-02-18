@@ -5,7 +5,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
-import dynamic from "next/dynamic";
 import Index from "./pages/Index";
 import StoryInput from "./pages/StoryInput";
 import TimelineEditor from "./pages/TimelineEditor";
