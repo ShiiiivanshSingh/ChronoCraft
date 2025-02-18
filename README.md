@@ -1,69 +1,125 @@
-# Welcome to your Lovable project
+<div align="center">
+  <img src="assets/logo.png" alt="Story Structure Logo" width="200" height="auto" />
+  <h1>Story Structure</h1>
+  
+  <p>
+    A powerful tool for crafting non-linear narratives. Transform your linear stories into cinematic masterpieces with our intuitive timeline editor.
+  </p>
 
-## Project info
+<!-- Badges -->
+<p>
+  <a href="https://github.com/yourusername/story-structure">
+    <img src="https://img.shields.io/github/contributors/yourusername/story-structure" alt="contributors" />
+  </a>
+  <a href="https://github.com/yourusername/story-structure">
+    <img src="https://img.shields.io/github/last-commit/yourusername/story-structure" alt="last update" />
+  </a>
+  <a href="https://github.com/yourusername/story-structure">
+    <img src="https://img.shields.io/github/stars/yourusername/story-structure?style=social" alt="stars" />
+  </a>
+</p>
 
-**URL**: https://lovable.dev/projects/167c2067-8a59-4971-83b4-9c616d12514e
+<h4>
+    <a href="https://story-structure.vercel.app">View Demo</a>
+  <span> · </span>
+    <a href="https://github.com/yourusername/story-structure">Documentation</a>
+  <span> · </span>
+    <a href="https://github.com/yourusername/story-structure/issues/">Report Bug</a>
+  <span> · </span>
+    <a href="https://github.com/yourusername/story-structure/issues/">Request Feature</a>
+</h4>
+</div>
 
-## How can I edit this code?
+<br />
 
-There are several ways of editing your application.
+<!-- Table of Contents -->
+# Table of Contents
 
-**Use Lovable**
+- [About the Project](#about-the-project)
+  * [Screenshots](#screenshots)
+  * [Tech Stack](#tech-stack)
+  * [Features](#features)
+- [Getting Started](#getting-started)
+  * [Prerequisites](#prerequisites)
+  * [Installation](#installation)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/167c2067-8a59-4971-83b4-9c616d12514e) and start prompting.
+<!-- About the Project -->
+## About the Project
 
-Changes made via Lovable will be committed automatically to this repo.
+Story Structure is a revolutionary tool designed for writers, filmmakers, and storytellers who want to break free from linear narratives. Our platform enables you to easily transform traditional storylines into complex, engaging non-linear narratives using an intuitive drag-and-drop interface.
 
-**Use your preferred IDE**
+<!-- Screenshots -->
+### Screenshots
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+<div align="center">
+  <h3><b>🌙 Dark Mode</b></h3>
+  <img src="screenshots/dark-mode.png" alt="dark mode" />
+  
+  <h3><b>☀️ Light Mode</b></h3>
+  <img src="screenshots/light-mode.png" alt="light mode" />
+</div>
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+<!-- Tech Stack -->
+### Tech Stack
 
-Follow these steps:
+<details>
+  <summary>Frontend</summary>
+  <ul>
+    <li>React</li>
+    <li>TypeScript</li>
+    <li>Tailwind CSS</li>
+    <li>Shadcn/ui</li>
+    <li>Zustand</li>
+  </ul>
+</details>
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+<!-- Features -->
+### Features
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+- 📝 Visual Timeline Editor
+- 🤖 AI-Powered Analysis
+- ⌛ Time-Bending Templates
+- 👥 Real-time Collaboration
+- 📊 Advanced Analytics
+- 📱 Responsive Design
 
-# Step 3: Install the necessary dependencies.
-npm i
+<!-- Getting Started -->
+## Getting Started
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+### Prerequisites
 
-**Edit a file directly in GitHub**
+- Node.js (v18 or higher)
+- npm or yarn
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
 
-**Use GitHub Codespaces**
+<!-- Contributing -->
+## Contributing
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Contributions are always welcome! Please feel free to submit a Pull Request.
 
-## What technologies are used for this project?
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-This project is built with .
+<!-- License -->
+## License
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## How can I deploy this project?
+<!-- Contact -->
+## Contact
 
-Simply open [Lovable](https://lovable.dev/projects/167c2067-8a59-4971-83b4-9c616d12514e) and click on Share -> Publish.
+Your Name - [@yourtwitter](https://twitter.com/yourtwitter) - email@example.com
 
-## I want to use a custom domain - is that possible?
+Project Link: [https://github.com/yourusername/story-structure](https://github.com/yourusername/story-structure)
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+---
+
+<div align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Montserrat&size=18&duration=1000&pause=10000&color=FF6B6B&center=true&vCenter=true&random=false&width=435&lines=Made+with+%E2%9D%A4%EF%B8%8F+by+Story+Structure+Team" alt="Typing SVG" />
+</div>
