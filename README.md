@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/logo.png" alt="ChronoCraft Logo" width="200" height="auto" />
+  height="auto" />
   <h1>ChronoCraft</h1>
   
   <p>
@@ -51,16 +51,7 @@
 
 Story Structure is a revolutionary tool designed for writers, filmmakers, and storytellers who want to break free from linear narratives. Our platform enables you to easily transform traditional storylines into complex, engaging non-linear narratives using an intuitive drag-and-drop interface.
 
-<!-- Screenshots -->
-### Screenshots
 
-<div align="center">
-  <h3><b>🌙 Dark Mode</b></h3>
-  <img src="screenshots/dark-mode.png" alt="dark mode" />
-  
-  <h3><b>☀️ Light Mode</b></h3>
-  <img src="screenshots/light-mode.png" alt="light mode" />
-</div>
 
 <!-- Tech Stack -->
 ### Tech Stack
