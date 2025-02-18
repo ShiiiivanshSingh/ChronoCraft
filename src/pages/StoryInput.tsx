@@ -1,31 +1,39 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
-import { Plus, ArrowRight, ArrowLeft, Download } from "lucide-react";
-import { create } from 'zustand'
-
-interface Scene {
-  id: string;
-  title: string;
-  description: string;
-  characters: string[];
-}
+import { Plus, ArrowRight, ArrowLeft, Download, Trash2 } from "lucide-react";
+import { Scene } from "@/types/story";
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 
 interface StoryStore {
   scenes: Scene[];
   setScenes: (scenes: Scene[]) => void;
   addScene: (scene: Scene) => void;
+  deleteScene: (id: string) => void;
 }
 
-export const useStoryStore = create<StoryStore>((set) => ({
-  scenes: [],
-  setScenes: (scenes) => set({ scenes }),
-  addScene: (scene) => set((state) => ({ scenes: [...state.scenes, scene] })),
-}));
+export const useStoryStore = create<StoryStore>()(
+  persist(
+    (set) => ({
+      scenes: [],
+      setScenes: (scenes) => set({ scenes }),
+      addScene: (scene) => set((state) => ({ 
+        scenes: [...state.scenes, scene] 
+      })),
+      deleteScene: (id) => set((state) => ({
+        scenes: state.scenes.filter(scene => scene.id !== id)
+      })),
+    }),
+    {
+      name: 'story-storage',
+    }
+  )
+);
 
 const StoryInput = () => {
-  const { scenes, addScene } = useStoryStore();
+  const { scenes, addScene, deleteScene } = useStoryStore();
   const navigate = useNavigate();
   const [newScene, setNewScene] = useState({
     title: "",
@@ -40,6 +48,7 @@ const StoryInput = () => {
         title: newScene.title,
         description: newScene.description,
         characters: newScene.characters.split(",").map((c) => c.trim()),
+        lastModified: new Date(),
       });
       setNewScene({ title: "", description: "", characters: "" });
     }
@@ -81,9 +90,17 @@ const StoryInput = () => {
           {scenes.map((scene, index) => (
             <div
               key={scene.id}
-              className="p-4 bg-secondary/50 rounded-lg animate-fade-up"
+              className="p-4 bg-secondary/50 rounded-lg animate-fade-up relative group"
               style={{ animationDelay: `${index * 100}ms` }}
             >
+              <Button
+                variant="ghost"
+                size="icon"
+                className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                onClick={() => deleteScene(scene.id)}
+              >
+                <Trash2 className="h-4 w-4 text-destructive" />
+              </Button>
               <h3 className="font-semibold">{scene.title}</h3>
               <p className="text-muted-foreground">{scene.description}</p>
               <div className="mt-2 flex flex-wrap gap-2">
@@ -96,6 +113,11 @@ const StoryInput = () => {
                   </span>
                 ))}
               </div>
+              {scene.lastModified && (
+                <div className="text-xs text-muted-foreground mt-2">
+                  Last modified: {new Date(scene.lastModified).toLocaleString()}
+                </div>
+              )}
             </div>
           ))}
         </div>
