@@ -1,9 +1,9 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
 import { Plus, ArrowRight } from "lucide-react";
+import { create } from 'zustand'
 
 interface Scene {
   id: string;
@@ -12,26 +12,35 @@ interface Scene {
   characters: string[];
 }
 
+interface StoryStore {
+  scenes: Scene[];
+  setScenes: (scenes: Scene[]) => void;
+  addScene: (scene: Scene) => void;
+}
+
+export const useStoryStore = create<StoryStore>((set) => ({
+  scenes: [],
+  setScenes: (scenes) => set({ scenes }),
+  addScene: (scene) => set((state) => ({ scenes: [...state.scenes, scene] })),
+}));
+
 const StoryInput = () => {
+  const { scenes, addScene } = useStoryStore();
   const navigate = useNavigate();
-  const [scenes, setScenes] = useState<Scene[]>([]);
   const [newScene, setNewScene] = useState({
     title: "",
     description: "",
     characters: "",
   });
 
-  const addScene = () => {
+  const handleAddScene = () => {
     if (newScene.title && newScene.description) {
-      setScenes([
-        ...scenes,
-        {
-          id: crypto.randomUUID(),
-          title: newScene.title,
-          description: newScene.description,
-          characters: newScene.characters.split(",").map((c) => c.trim()),
-        },
-      ]);
+      addScene({
+        id: crypto.randomUUID(),
+        title: newScene.title,
+        description: newScene.description,
+        characters: newScene.characters.split(",").map((c) => c.trim()),
+      });
       setNewScene({ title: "", description: "", characters: "" });
     }
   };
@@ -59,7 +68,7 @@ const StoryInput = () => {
             value={newScene.characters}
             onChange={(e) => setNewScene({ ...newScene, characters: e.target.value })}
           />
-          <Button onClick={addScene} className="w-full">
+          <Button onClick={handleAddScene} className="w-full">
             <Plus className="mr-2" /> Add Scene
           </Button>
         </div>

@@ -11,6 +11,10 @@ import {
   Sparkles,
   Code2,
   Users,
+  Github,
+  Twitter,
+  Mail,
+  Heart,
 } from "lucide-react";
 
 const Index = () => {
@@ -19,9 +23,9 @@ const Index = () => {
   return (
     <div className="min-h-screen font-sans">
       {/* Hero Section */}
-      <section className="section-padding flex flex-col items-center justify-center min-h-[80vh] text-center">
+      <section className="section-padding flex flex-col items-center justify-center h-screen">
         <div className="animate-fade-down">
-          <span className="inline-block px-4 py-2 rounded-full bg-accent/10 text-accent mb-6">
+          <span className="inline-block px-4 py-2 rounded-full items-center bg-accent/10 text-accent mb-6 mx-auto text-center">
             Transform Your Stories
           </span>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight font-mont">
@@ -54,8 +58,8 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="section-padding bg-secondary/50">
-        <div className="max-w-6xl mx-auto">
+      <section className="section-padding min-h-screen bg-secondary/50 flex items-center">
+        <div className="max-w-6xl mx-auto w-full">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 font-mont">
             Powerful Features for Storytellers
           </h2>
@@ -195,6 +199,74 @@ const Index = () => {
           </Button>
         </div>
       </section>
+
+      {/* Footer Section */}
+      <footer className="section-padding bg-secondary/10 border-t border-border">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <h3 className="font-bold mb-4 font-mont">Story Structure</h3>
+              <p className="text-muted-foreground text-sm">
+                Crafting non-linear narratives made simple.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-bold mb-4 font-mont">Quick Links</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Button variant="link" onClick={() => navigate("/story-input")}>
+                    Get Started
+                  </Button>
+                </li>
+                <li>
+                  <Button variant="link" onClick={() => navigate("/templates")}>
+                    Templates
+                  </Button>
+                </li>
+                <li>
+                  <Button variant="link" onClick={() => navigate("/editor")}>
+                    Editor
+                  </Button>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-bold mb-4 font-mont">Resources</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Button variant="link">Documentation</Button>
+                </li>
+                <li>
+                  <Button variant="link">Blog</Button>
+                </li>
+                <li>
+                  <Button variant="link">Support</Button>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-bold mb-4 font-mont">Connect</h3>
+              <div className="flex space-x-4">
+                <Button variant="ghost" size="icon">
+                  <Github className="h-5 w-5" />
+                </Button>
+                <Button variant="ghost" size="icon">
+                  <Twitter className="h-5 w-5" />
+                </Button>
+                <Button variant="ghost" size="icon">
+                  <Mail className="h-5 w-5" />
+                </Button>
+              </div>
+            </div>
+          </div>
+          <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
+            <p>© 2024 Story Structure. All rights reserved.</p>
+            <div className="flex items-center gap-2 mt-4 md:mt-0">
+              Made with <Heart className="h-4 w-4 text-red-500" /> by Story Structure Team
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
