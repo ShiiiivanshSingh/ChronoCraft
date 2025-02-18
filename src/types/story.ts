@@ -3,6 +3,7 @@ export interface Scene {
   title: string;
   description: string;
   characters: string[];
+  plotNumber: number;  // Add this to track original order
   branchTo?: string[];      // IDs of scenes this branches to
   isLoop?: boolean;         // Whether this scene loops back
   linkedScenes?: string[];  // IDs of scenes this is linked with

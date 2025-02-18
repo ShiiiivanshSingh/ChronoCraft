@@ -83,7 +83,6 @@ const TimelineEditor = () => {
     <div className="container mx-auto py-8">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-4xl font-bold">Timeline Editor</h1>
-        
       </div>
 
       <DragDropContext onDragEnd={handleDragEnd}>
@@ -112,30 +111,53 @@ const TimelineEditor = () => {
                         className={getSceneStyle(scene)}
                         onClick={() => handleSceneClick(scene.id)}
                       >
-                        <h3 className="font-semibold">{scene.title}</h3>
-                        <p className="text-muted-foreground">{scene.description}</p>
-                        <div className="mt-2 flex flex-wrap gap-2">
-                          {scene.characters.map((character) => (
-                            <span
-                              key={character}
-                              className="px-2 py-1 bg-accent/10 text-accent rounded-full text-sm"
-                            >
-                              {character}
+                        <div className="flex items-start gap-4">
+                          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center">
+                            <span className="text-sm font-semibold text-accent">
+                              {scene.plotNumber}
                             </span>
-                          ))}
-                        </div>
-                        {/* Show connections */}
-                        {(scene.branchTo?.length || scene.linkedScenes?.length || scene.isLoop) && (
-                          <div className="mt-2 text-sm text-muted-foreground">
-                            {scene.branchTo?.length > 0 && (
-                              <div>Branches to: {scene.branchTo.join(', ')}</div>
-                            )}
-                            {scene.linkedScenes?.length > 0 && (
-                              <div>Linked with: {scene.linkedScenes.join(', ')}</div>
-                            )}
-                            {scene.isLoop && <div>Loops back</div>}
                           </div>
-                        )}
+                          <div className="flex-grow">
+                            <div className="flex justify-between items-start">
+                              <h3 className="font-semibold">
+                                {scene.title}
+                               
+                              </h3>
+                              {scene.lastModified && (
+                                <span className="text-xs text-muted-foreground">
+                                  {new Date(scene.lastModified).toLocaleString()}
+                                </span>
+                              )}
+                            </div>
+                            <p className="text-muted-foreground">{scene.description}</p>
+                            <div className="mt-2 flex flex-wrap gap-2">
+                              {scene.characters.map((character) => (
+                                <span
+                                  key={character}
+                                  className="px-2 py-1 bg-accent/10 text-accent rounded-full text-sm"
+                                >
+                                  {character}
+                                </span>
+                              ))}
+                            </div>
+                            {/* Show connections */}
+                            {(scene.branchTo?.length || scene.linkedScenes?.length || scene.isLoop) && (
+                              <div className="mt-2 text-sm text-muted-foreground">
+                                {scene.branchTo?.length > 0 && (
+                                  <div>Branches to: Plot {scene.branchTo.map(id => 
+                                    scenes.find(s => s.id === id)?.plotNumber
+                                  ).join(', ')}</div>
+                                )}
+                                {scene.linkedScenes?.length > 0 && (
+                                  <div>Linked with: Plot {scene.linkedScenes.map(id => 
+                                    scenes.find(s => s.id === id)?.plotNumber
+                                  ).join(', ')}</div>
+                                )}
+                                {scene.isLoop && <div>Loops back</div>}
+                              </div>
+                            )}
+                          </div>
+                        </div>
                       </div>
                     )}
                   </Draggable>

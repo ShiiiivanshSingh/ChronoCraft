@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
-import { Plus, ArrowRight, ArrowLeft, Download, Trash2 } from "lucide-react";
+import { Plus, ArrowRight, ArrowLeft, Download, Trash2, Edit2 } from "lucide-react";
 import { Scene } from "@/types/story";
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
@@ -33,13 +33,14 @@ export const useStoryStore = create<StoryStore>()(
 );
 
 const StoryInput = () => {
-  const { scenes, addScene, deleteScene } = useStoryStore();
+  const { scenes, addScene, deleteScene, setScenes } = useStoryStore();
   const navigate = useNavigate();
   const [newScene, setNewScene] = useState({
     title: "",
     description: "",
     characters: "",
   });
+  const [editingScene, setEditingScene] = useState<Scene | null>(null);
 
   const handleAddScene = () => {
     if (newScene.title && newScene.description) {
@@ -48,8 +49,37 @@ const StoryInput = () => {
         title: newScene.title,
         description: newScene.description,
         characters: newScene.characters.split(",").map((c) => c.trim()),
+        plotNumber: scenes.length + 1,
         lastModified: new Date(),
       });
+      setNewScene({ title: "", description: "", characters: "" });
+    }
+  };
+
+  const handleEditScene = (scene: Scene) => {
+    setEditingScene(scene);
+    setNewScene({
+      title: scene.title,
+      description: scene.description,
+      characters: scene.characters.join(", "),
+    });
+  };
+
+  const handleUpdateScene = () => {
+    if (editingScene && newScene.title && newScene.description) {
+      const updatedScenes = scenes.map(scene => 
+        scene.id === editingScene.id 
+          ? {
+              ...scene,
+              title: newScene.title,
+              description: newScene.description,
+              characters: newScene.characters.split(",").map((c) => c.trim()),
+              lastModified: new Date(),
+            }
+          : scene
+      );
+      setScenes(updatedScenes);
+      setEditingScene(null);
       setNewScene({ title: "", description: "", characters: "" });
     }
   };
@@ -60,7 +90,9 @@ const StoryInput = () => {
       
       {/* Scene Input Form */}
       <div className="glass p-6 mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Add New Scene</h2>
+        <h2 className="text-2xl font-semibold mb-4">
+          {editingScene ? 'Edit Scene' : 'Add New Scene'}
+        </h2>
         <div className="space-y-4">
           <Input
             placeholder="Scene Title"
@@ -77,9 +109,27 @@ const StoryInput = () => {
             value={newScene.characters}
             onChange={(e) => setNewScene({ ...newScene, characters: e.target.value })}
           />
-          <Button onClick={handleAddScene} className="w-full">
-            <Plus className="mr-2" /> Add Scene
-          </Button>
+          {editingScene ? (
+            <div className="flex gap-2">
+              <Button onClick={handleUpdateScene} className="flex-1">
+                Update Scene
+              </Button>
+              <Button 
+                variant="outline" 
+                onClick={() => {
+                  setEditingScene(null);
+                  setNewScene({ title: "", description: "", characters: "" });
+                }}
+                className="flex-1"
+              >
+                Cancel
+              </Button>
+            </div>
+          ) : (
+            <Button onClick={handleAddScene} className="w-full">
+              <Plus className="mr-2" /> Add Scene
+            </Button>
+          )}
         </div>
       </div>
 
@@ -93,14 +143,26 @@ const StoryInput = () => {
               className="p-4 bg-secondary/50 rounded-lg animate-fade-up relative group"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <Button
-                variant="ghost"
-                size="icon"
-                className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                onClick={() => deleteScene(scene.id)}
-              >
-                <Trash2 className="h-4 w-4 text-destructive" />
-              </Button>
+              <div className="absolute top-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => handleEditScene(scene)}
+                  className="h-8 w-8"
+                  disabled={!!editingScene}
+                >
+                  <Edit2 className="h-4 w-4 text-muted-foreground" />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => deleteScene(scene.id)}
+                  className="h-8 w-8"
+                  disabled={!!editingScene}
+                >
+                  <Trash2 className="h-4 w-4 text-destructive" />
+                </Button>
+              </div>
               <h3 className="font-semibold">{scene.title}</h3>
               <p className="text-muted-foreground">{scene.description}</p>
               <div className="mt-2 flex flex-wrap gap-2">
