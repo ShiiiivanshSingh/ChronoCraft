@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
-import { Plus, ArrowRight } from "lucide-react";
+import { Plus, ArrowRight, ArrowLeft, Download } from "lucide-react";
 import { create } from 'zustand'
 
 interface Scene {
@@ -102,15 +102,26 @@ const StoryInput = () => {
       </div>
 
       {/* Navigation */}
-      <div className="flex justify-end">
-        <Button
-          onClick={() => navigate("/editor")}
-          disabled={scenes.length === 0}
-          className="group"
-        >
-          Continue to Editor
-          <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+      <div className="flex justify-between mt-8">
+        <Button variant="outline" onClick={() => navigate("/")}>
+          <ArrowLeft className="mr-2 h-4 w-4" /> Back
         </Button>
+        <div className="flex gap-4">
+          <Button 
+            variant="outline"
+            onClick={() => navigate("/export")}
+            disabled={scenes.length === 0}
+          >
+            <Download className="mr-2 h-4 w-4" />
+            Export
+          </Button>
+          <Button 
+            onClick={() => navigate("/editor")}
+            disabled={scenes.length === 0}
+          >
+            Continue to Editor <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+        </div>
       </div>
     </div>
   );

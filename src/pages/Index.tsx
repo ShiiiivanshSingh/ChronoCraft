@@ -146,23 +146,23 @@ const Index = () => {
 
       {/* Pricing Section */}
       <section className="section-padding bg-secondary/50">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 font-mont">
             Choose Your Creative Journey
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {plans.map((plan, index) => (
               <div
                 key={plan.name}
-                className="glass p-6 flex flex-col animate-fade-up"
+                className="glass p-8 flex flex-col animate-fade-up w-full max-w-sm mx-auto"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <h3 className="text-xl font-semibold mb-2 font-mont">{plan.name}</h3>
-                <p className="text-muted-foreground mb-4">{plan.description}</p>
-                <div className="text-3xl font-bold mb-6">${plan.price}</div>
+                <h3 className="text-xl font-semibold mb-2 font-mont text-center">{plan.name}</h3>
+                <p className="text-muted-foreground mb-4 text-center">{plan.description}</p>
+                <div className="text-3xl font-bold mb-6 text-center">{plan.price}</div>
                 <ul className="space-y-3 mb-8">
                   {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-2">
+                    <li key={feature} className="flex items-center gap-2 justify-center">
                       <CheckCircle2 className="h-5 w-5 text-accent" />
                       <span>{feature}</span>
                     </li>
@@ -170,7 +170,7 @@ const Index = () => {
                 </ul>
                 <Button
                   variant={plan.highlighted ? "default" : "outline"}
-                  className="mt-auto hover-lift"
+                  className="mt-auto hover-lift w-full"
                   onClick={() => navigate("/story-input")}
                 >
                   Get Started
@@ -279,7 +279,7 @@ const Index = () => {
             </div>
           </div>
           <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
-            <p>© 2024 ChronoCraft. All rights reserved.</p>
+            <p>© 2025 ChronoCraft. :) </p>
             <div className="flex items-center gap-2 mt-4 md:mt-0">
               Made with <Heart className="h-4 w-4 text-red-500" /> by Shivansh Pratap Singh
             </div>
@@ -364,21 +364,21 @@ const testimonials = [
 
 const plans = [
   {
-    name: "Storyteller",
-    description: "Perfect for individual creators",
-    price: "15",
+    name: "Free",
+    description: "Perfect for getting started",
+    price: "Free To Use",
     features: [
-      "3 Active Projects",
+      "1 Active Project",
       "Basic Templates",
       "Export to PDF",
-      "Email Support",
+      "Community Support",
     ],
     highlighted: false,
   },
   {
-    name: "Professional",
-    description: "For serious writers and filmmakers",
-    price: "39",
+    name: "Pro",
+    description: "Coming Soon",
+    price: "Coming Soon",
     features: [
       "Unlimited Projects",
       "Advanced Templates",
@@ -386,19 +386,7 @@ const plans = [
       "Priority Support",
     ],
     highlighted: true,
-  },
-  {
-    name: "Studio",
-    description: "For teams and production houses",
-    price: "99",
-    features: [
-      "Everything in Pro",
-      "Custom Templates",
-      "API Access",
-      "Dedicated Support",
-    ],
-    highlighted: false,
-  },
+  }
 ];
 
 export default Index;

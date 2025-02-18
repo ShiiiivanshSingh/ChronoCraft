@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { MoveHorizontal, Undo2, Redo2, Save } from "lucide-react";
+import { MoveHorizontal, Undo2, Redo2, Save, Download } from "lucide-react";
 import { useStoryStore } from './StoryInput';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
@@ -85,7 +85,7 @@ const TimelineEditor = () => {
       </DragDropContext>
 
       {/* Tools Panel */}
-      <div className="grid grid-cols-3 gap-4 mb-8">
+      <div className="grid grid-cols-4 gap-4 mb-8">
         <Button variant="outline" className="glass">
           Add Branch
         </Button>
@@ -94,6 +94,14 @@ const TimelineEditor = () => {
         </Button>
         <Button variant="outline" className="glass">
           Link Scenes
+        </Button>
+        <Button 
+          variant="outline" 
+          className="glass"
+          onClick={() => navigate("/export")}
+        >
+          <Download className="h-4 w-4 mr-2" />
+          Export
         </Button>
       </div>
 

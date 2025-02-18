@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -13,6 +12,7 @@ import Analysis from "./pages/Analysis";
 import Export from "./pages/Export";
 import NotFound from "./pages/NotFound";
 import Background from "./components/Background";
+import ExportStory from "./pages/ExportStory";
 
 const queryClient = new QueryClient();
 
@@ -31,7 +31,7 @@ const App = () => (
               <Route path="/editor" element={<TimelineEditor />} />
               <Route path="/templates" element={<Templates />} />
               <Route path="/analysis" element={<Analysis />} />
-              <Route path="/export" element={<Export />} />
+              <Route path="/export" element={<ExportStory />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
