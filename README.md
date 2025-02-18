@@ -32,6 +32,7 @@ soon!
   <br>
   <img src="https://github.com/user-attachments/assets/screenshot3.png">
 </p>
+-->
 
 ## Why ChronoCraft? 🤔
 
