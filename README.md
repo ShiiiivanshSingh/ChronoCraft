@@ -2,6 +2,7 @@
 
 A powerful tool for crafting non-linear narratives. Transform your linear stories into cinematic masterpieces with our intuitive timeline editor.
 
+
 <div align="center">
 
 [![ChronoCraft](https://img.shields.io/badge/Try-ChronoCraft-8b5cf6?style=for-the-badge)](https://chrono-craft-mu.vercel.app/)
