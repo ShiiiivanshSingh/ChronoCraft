@@ -45,7 +45,7 @@ const Templates = () => {
               />
             </div>
             <h3 className="text-xl font-semibold mb-2">{template.name}</h3>
-            <p className="text-muted-foreground mb-4">{template.description}</p>
+            <p className="text-muted-foreground mb-4 whitespace-pre-line leading-relaxed">{template.description}</p>
             <Button 
               className="w-full"
               onClick={() => applyTemplate(template)}
@@ -73,7 +73,7 @@ const templates: Template[] = [
   {
     icon: Clock,
     name: "Memento Style",
-    description: "Reverse chronological order with interwoven timelines.",
+    description: "• Splits your story into two parallel timelines\n• Even-numbered scenes play in normal order\n• Odd-numbered scenes play in reverse\n• Creates tension as timelines move in opposite directions\n• Perfect for mysteries and revelations",
     image: "https://m.media-amazon.com/images/M/MV5BZTcyNjk1MjgtOWI3Mi00YzQwLWI5MTktMzY4ZmI2NDAyNzYzXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg",
     apply: (scenes: Scene[]) => {
       const forward = [...scenes].filter((_, i) => i % 2 === 0);
@@ -86,7 +86,7 @@ const templates: Template[] = [
   {
     icon: Shuffle,
     name: "Pulp Fiction",
-    description: "Multiple intersecting storylines with non-linear progression.",
+    description: "• Divides scenes into three storylines\n • Each storyline is shuffled separately\n• Stories weave together randomly\n• Creates unexpected connections\n• Best for multiple character perspectives",
     image: "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
     apply: (scenes: Scene[]) => {
       const storylines = [[], [], []];
@@ -109,7 +109,7 @@ const templates: Template[] = [
   {
     icon: GitBranch,
     name: "Inception Layers",
-    description: "Nested storylines with parallel time progression.",
+    description: "• Organizes scenes into nested layers\n• Each layer runs at different speeds\n• Deeper layers are more complex adding a unique twist to the story\n• Stories connect across layers with each other\n• Ideal for nested realities or dreams",
     image: "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg",
     apply: (scenes: Scene[]) => {
       const layers = Math.ceil(scenes.length / 3);
@@ -130,6 +130,7 @@ const templates: Template[] = [
       }));
     }
   },
+ 
 ];
 
 export default Templates;
