@@ -5,6 +5,10 @@
   <p>Transform your linear stories into cinematic masterpieces with our intuitive timeline editor.</p>
 
   <a href="https://chrono-craft-mu.vercel.app/"><img src="https://img.shields.io/badge/Try-ChronoCraft-8b5cf6?style=for-the-badge" alt="Try ChronoCraft"></a>
+
+  <br>
+
+  
   <a href="https://github.com/ShiiiivanshSingh/chronocraft/stargazers"><img src="https://img.shields.io/github/stars/ShiiiivanshSingh/chronocraft?style=for-the-badge&color=purple" alt="GitHub stars"></a>
   <hr>
 </div>
