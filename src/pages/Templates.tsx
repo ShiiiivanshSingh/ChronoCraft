@@ -8,8 +8,11 @@ interface Template {
   icon: LucideIcon;  
   name: string;
   description: string;
+  image: string;
   apply: (scenes: Scene[]) => Scene[];
 }
+
+
 
 const Templates = () => {
   const { scenes, setScenes } = useStoryStore();
@@ -31,10 +34,16 @@ const Templates = () => {
         {templates.map((template, index) => (
           <div
             key={template.name}
-            className="glass p-6 animate-fade-up hover:scale-105 transition-transform"
+            className="glass p-6 animate-fade-up hover:scale-105 hover:bg-white/20 dark:hover:bg-black/30 transition-all duration-300"
             style={{ animationDelay: `${index * 100}ms` }}
           >
-            <template.icon className="h-12 w-12 text-accent mb-4" />
+            <div className="relative w-full aspect-[2/3] mb-4 rounded-lg overflow-hidden">
+              <img 
+                src={template.image} 
+                alt={template.name}
+                className="object-cover w-full h-full hover:scale-110 transition-transform duration-500"
+              />
+            </div>
             <h3 className="text-xl font-semibold mb-2">{template.name}</h3>
             <p className="text-muted-foreground mb-4">{template.description}</p>
             <Button 
@@ -65,6 +74,7 @@ const templates: Template[] = [
     icon: Clock,
     name: "Memento Style",
     description: "Reverse chronological order with interwoven timelines.",
+    image: "https://m.media-amazon.com/images/M/MV5BZTcyNjk1MjgtOWI3Mi00YzQwLWI5MTktMzY4ZmI2NDAyNzYzXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg",
     apply: (scenes: Scene[]) => {
       const forward = [...scenes].filter((_, i) => i % 2 === 0);
       const backward = [...scenes].filter((_, i) => i % 2 === 1).reverse();
@@ -77,6 +87,7 @@ const templates: Template[] = [
     icon: Shuffle,
     name: "Pulp Fiction",
     description: "Multiple intersecting storylines with non-linear progression.",
+    image: "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
     apply: (scenes: Scene[]) => {
       const storylines = [[], [], []];
       scenes.forEach((scene, i) => {
@@ -99,6 +110,7 @@ const templates: Template[] = [
     icon: GitBranch,
     name: "Inception Layers",
     description: "Nested storylines with parallel time progression.",
+    image: "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg",
     apply: (scenes: Scene[]) => {
       const layers = Math.ceil(scenes.length / 3);
       const restructured = [];
